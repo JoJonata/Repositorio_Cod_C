@@ -5,48 +5,32 @@
 
 int main()
 {
-int I, Tamanho, Espaco=0;
-char Frase[100];
+	int I, Tamanho, Espaco=0, Flag = 0;
+	char Frase[100];
 
-gets(Frase);
+	gets(Frase);
 
-//Tamanho=strlen(Frase);
-
-/*while(Frase[I] != '\0')
-{
-if(Frase[I]==' ' && Frase[I+1]==' ')
-{
-Frase[I+1]='a';
-Espaco++;
-}
-else if(Frase[I]==' ')
-{
-Espaco++;
-}
-I++;
-}*/
-
-while(Frase[I] != '\0')
-{
-if(Frase[I]==' ')
-{
-Espaco++;
-}
-I++;
-}
-
-/*if(Frase[0]==' ')
-{
-Espaco--;
-}
-/* while(Frase[I] != '\0'){
-
-if(Frase[I] && Frase[I+1]==' ')
-{
-Espaco--;
-}
-}*/
-
-printf("%i",Espaco);
-return 0;
+	while(Frase[I] != '\0')
+	{
+		Flag=1;
+		if(Frase[I]==' ')
+		{	
+			Espaco++;
+			while(Frase[I]==' ') //exclui os espaços adicionais!
+			{
+				I++;
+			}
+		}
+		I++;
+	}
+	
+	if(Espaco >= 0 && Flag)
+	{
+		printf("%i",Espaco+1);
+	}
+	else
+	{
+		printf("0");
+	}
+	return 0;
 }
